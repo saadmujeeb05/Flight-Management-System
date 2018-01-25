@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>My Airline</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+    <!--     <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />-->
+
+    <link rel="stylesheet" href="../../font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+
+    <!-- custom stylesheet -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/signup.css">
+
+    <style>
+        body{
+            background-image: url("../../img/plane2.jpg"); !important;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+
+</head>
+
+<body>
+<header>
+    <div class="navbar navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" ><img src="../../img/logo.jpg"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <button onclick="logout()" type="button" class="btn btn-link navbar-btn navbar-right">Log Out</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="main">
+    <div class="container-fluid">
+        <div class="nav-widget">
+            <nav class="nav-widget-acc">
+                <!-- Nav tabs -->
+                <ul class="nav nav-pills nav-justified" id="myTab" role="tablist">
+                    <li role="presentation" class="active"><a href="#add-flights" aria-controls="add-flights" role="tab" data-toggle="tab">Add Flights</a></li>
+                    <li role="presentation"><a href="#manage-flights" aria-controls="manage-flights" role="tab" data-toggle="tab">Manage Flights</a></li>
+                    <li role="presentation"><a href="#schedule" aria-controls="schedule" role="tab" data-toggle="tab">Schedule</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active fade in" id="add-flights">
+                        <div class="container" style="margin-top: 50px">
+                            <form name="addFlightForm" action="AdminServlet" method="POST">
+                                <div class="row">
+                                    <div class="form-group col-sm-6 col-xs-12">
+                                        <label class="control-label col-xs-3" for="flightNumber">Flight Number</label>
+                                        <div class="col-sm-8 col-xs-12 input-group">
+                                            <input type="text" class="form-control" id="flightNumber" name="flightNumber" placeholder="Flight Number">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label class="control-label col-sm-3" for="departureDate">Departure Date</label>
+                                        <div class="col-sm-8 col-xs-12 input-group">
+                                            <input class="form-control" id="departureDate" name="departureDate" placeholder="DD/MM/YYYY" type="text"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-6">
+                                        <label class="control-label col-sm-3" for="arrivalDate">Arrival Date</label>
+                                        <div class="col-sm-8 col-xs-12 input-group">
+                                            <input class="form-control" id="arrivalDate" name="arrivalDate" placeholder="DD/MM/YYYY" type="text"/>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label class="control-label col-sm-3" for="departs">Departs</label>
+                                        <div class="col-sm-8 col-xs-12 input-group">
+                                            <input type="text" class="form-control" id="departs" name="departs" placeholder="From">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label class="control-label col-sm-3" for="departure">Departure</label>
+                                        <div class="col-sm-8 col-xs-12 input-group">
+                                            <input type="time" class="form-control" id="departure" name="departure" placeholder="Departure">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label class="control-label col-sm-3" for="arrives">Arrives</label>
+                                        <div class="col-sm-8 col-xs-12 input-group">
+                                            <input type="text" class="form-control" id="arrives" name="arrives" placeholder="To">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label class="control-label col-sm-3" for="arrival">Arrival</label>
+                                        <div class="col-sm-8 col-xs-12 input-group">
+                                            <input type="time" class="form-control" id="arrival" name="arrival" placeholder="Arrival">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-4">
+                                        <label class="control-label col-sm-5" for="eco-price">Economy Price</label>
+                                        <div class="col-sm-4 col-xs-12 input-group">
+                                            <input type="text" class="form-control" id="eco-price" name="eco-price" placeholder="Price">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label class="control-label col-sm-5" for="buss-price">Business Price</label>
+                                        <div class="col-sm-4 col-xs-12 input-group">
+                                            <input type="text" class="form-control" id="buss-price" name="buss-price" placeholder="Price">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label class="control-label col-sm-5" for="fclass-price">First Class Price</label>
+                                        <div class="col-sm-4 col-xs-12 input-group">
+                                            <input type="text" class="form-control" id="fclass-price" name="fclass-price" placeholder="Price">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-4">
+                                        <label class="control-label col-sm-5" for="eco-seats">Economy Seats</label>
+                                        <div class="col-sm-4 input-group">
+                                            <input type="number" class="form-control" id="eco-seats" name="eco-seats" placeholder="1">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label class="control-label col-sm-5" for="buss-seats">Business Seats</label>
+                                        <div class="col-sm-4 input-group">
+                                            <input type="number" class="form-control" id="buss-seats" name="buss-seats" placeholder="1">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label class="control-label col-sm-5" for="fclass-seats">Economy Seats</label>
+                                        <div class="col-sm-4 input-group">
+                                            <input type="number" class="form-control" id="fclass-seats" name="fclass-seats" placeholder="1">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-sm-12">
+                                    <div class="col-sm-offset-5 col-xs-offset-5 col-sm-3">
+                                        <button type="button" onclick="addFlight()" class="btn btn-success btn-lg btn-add-flight">Add Flight</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <div role="tabpanel" class="tab-pane fade" id="manage-flights">
+                        <div class="container schedule-container"  style="margin-top: 50px">
+                            <div class="panel panel-primary itin-panel">
+                                <div class="panel-heading">
+                                    <span style="margin:15px"><i class="glyphicon glyphicon-plane"></i></span>
+                                    Flight Schedule
+                                </div>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="table-manage-flights">
+                                            <thead>
+                                                <th>Flight Number</th>
+                                                <th>Departs</th>
+                                                <th>Departure Date</th>
+                                                <th>Departure</th>
+                                                <th>Arrives</th>
+                                                <th>Arrival Date</th>
+                                                <th>Arrival</th>
+                                                <th>Economy Seats</th>
+                                                <th>Economy Price</th>
+                                                <th>Business Seats</th>
+                                                <th>Business Price</th>
+                                                <th>First Class Seats</th>
+                                                <th>First Class Price</th>
+                                                <th>Actions</th>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div role="tabpanel" class="tab-pane fade" id="schedule">
+                        <div class="container schedule-container"  style="margin-top: 50px">
+                            <div class="panel panel-primary itin-panel">
+                                <div class="panel-heading">
+                                    <span style="margin:15px"><i class="glyphicon glyphicon-plane"></i></span>
+                                    Flight Schedule
+                                </div>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="table-schedule">
+                                            <thead>
+                                            <th>Flight Number</th>
+                                            <th>Departs</th>
+                                            <th>Departure Date</th>
+                                            <th>Departure</th>
+                                            <th>Arrives</th>
+                                            <th>Arrival Date</th>
+                                            <th>Arrival</th>
+                                            <th>Economy Seats</th>
+                                            <th>Economy Price</th>
+                                            <th>Business Seats</th>
+                                            <th>Business Price</th>
+                                            <th>First Class Seats</th>
+                                            <th>First Class Price</th>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="modal fade updateFlightModal" id="updateFlightModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Update Flight</h4>
+                </div>
+                <div class="modal-body">
+                    <form name="updateFlightForm" action="AdminServlet" method="POST">
+                        <div class="row">
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label class="control-label col-xs-3" for="uFlightNumber">Flight Number</label>
+                                <div class="col-sm-8 col-xs-12 input-group">
+                                    <input type="text" class="form-control" id="uFlightNumber" name="uFlightNumber" placeholder="Flight Number">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label class="control-label col-sm-3" for="uDepartureDate">Departure Date</label>
+                                <div class="col-sm-8 col-xs-12 input-group">
+                                    <input class="form-control" id="uDepartureDate" name="uDepartureDate" placeholder="DD/MM/YYYY" type="text"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-sm-6">
+                                <label class="control-label col-sm-3" for="uArrivalDate">Arrival Date</label>
+                                <div class="col-sm-8 col-xs-12 input-group">
+                                    <input class="form-control" id="uArrivalDate" name="uArrivalDate" placeholder="DD/MM/YYYY" type="text"/>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label class="control-label col-sm-3" for="uDeparts">Departs</label>
+                                <div class="col-sm-8 col-xs-12 input-group">
+                                    <input type="text" class="form-control" id="uDeparts" name="uDeparts" placeholder="From">
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label class="control-label col-sm-3" for="uDeparture">Departure</label>
+                                <div class="col-sm-8 col-xs-12 input-group">
+                                    <input type="time" class="form-control" id="uDeparture" name="uDeparture" placeholder="Departure">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label class="control-label col-sm-3" for="uArrives">Arrives</label>
+                                <div class="col-sm-8 col-xs-12 input-group">
+                                    <input type="text" class="form-control" id="uArrives" name="uArrives" placeholder="To">
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label class="control-label col-sm-3" for="uArrival">Arrival</label>
+                                <div class="col-sm-8 col-xs-12 input-group">
+                                    <input type="time" class="form-control" id="uArrival" name="uArrival" placeholder="Arrival">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label class="control-label col-sm-5" for="u-eco-price">Economy Price</label>
+                                <div class="col-sm-4 col-xs-12 input-group">
+                                    <input type="text" class="form-control" id="u-eco-price" name="u-eco-price" placeholder="Price">
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label col-sm-5" for="u-buss-price">Business Price</label>
+                                <div class="col-sm-4 col-xs-12 input-group">
+                                    <input type="text" class="form-control" id="u-buss-price" name="u-buss-price" placeholder="Price">
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label col-sm-5" for="u-fclass-price">First Class Price</label>
+                                <div class="col-sm-4 col-xs-12 input-group">
+                                    <input type="text" class="form-control" id="u-fclass-price" name="u-fclass-price" placeholder="Price">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label class="control-label col-sm-5" for="u-eco-seats">Economy Seats</label>
+                                <div class="col-sm-4 input-group">
+                                    <input type="number" class="form-control" id="u-eco-seats" name="u-eco-seats" placeholder="1">
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label col-sm-5" for="u-buss-seats">Business Seats</label>
+                                <div class="col-sm-4 input-group">
+                                    <input type="number" class="form-control" id="u-buss-seats" name="u-buss-seats" placeholder="1">
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="control-label col-sm-5" for="u-fclass-seats">First Class Seats</label>
+                                <div class="col-sm-4 input-group">
+                                    <input type="number" class="form-control" id="u-fclass-seats" name="u-fclass-seats" placeholder="1">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group col-sm-12">
+                        <div class="col-sm-offset-4 col-xs-offset-4 col-sm-3">
+                            <button type="button" onclick="updateFlight()" class="btn btn-success btn-lg btn-add-flight">Update Flight</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end main -->
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- Bootstrap Date-Picker Plugin -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+
+<script type="text/javascript" src="../../js/admin.js"></script>
+
+</body>
+</html>

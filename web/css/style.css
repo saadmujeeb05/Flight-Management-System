@@ -1,0 +1,323 @@
+body{
+    padding-top:50px;
+}
+
+/*navbar*/
+
+.navbar-brand {
+    padding: 0px; /* firefox bug fix */
+}
+.navbar-brand>img {
+    height: 100%;
+    padding: 10px; /* firefox bug fix */
+    width: auto;
+}
+
+.navbar{
+    border-radius: 0;
+}
+
+.navbar-custom .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+.navbar-custom{
+    background-color: #337ab7;
+}
+
+.navbar-brand, .navbar-custom .navbar-nav>li>a{
+    color: #fff !important;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.navbar-btn{
+    margin-right: auto;
+}
+.btn-link{
+    color: #fff !important;
+}
+
+
+
+/*carousel*/
+.carousel-indicators{
+    display: none;
+}
+
+.nav > li > a:focus, .nav > li > a:hover {
+    background-color: rgba(40,96,144,0.5) !important;
+    text-decoration: none;
+}
+
+/*main*/
+
+
+.container-fluid{
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+.schedule-container, .tentative-schedule-container{
+    width: auto !important;
+}
+
+.schedule-container label,
+.tentative-schedule-container label,
+.modal-content label{
+    color: #000 !important;
+}
+
+
+
+.tab-content{
+    background-color: rgba(51, 122, 183, 0.2) !important;
+}
+
+.bootstrap-iso {
+    background-color: transparent;
+    color: #fff;
+}
+
+.tab-pane{
+    padding: 10px 30px 10px 30px;
+}
+
+#flights{
+    color: #fff;
+    background-color: #e2ddd5;
+    background-image: url("../img/plane.jpg");
+    background-size: cover;
+}
+
+.form-flights{
+    margin: 30px 0 30px 50px;
+    background-color: rgba(51, 122, 183, 0.2) !important;
+    padding: 20px;
+}
+
+#my-booking{
+    color: #fff;
+    background-color: #e2ddd5;
+    background-image: url("../img/booking.jpg");
+    background-size: cover;
+}
+
+.form-my-booking{
+    margin: 30px 50px 0 50px;
+    background-color: rgba(51, 122, 183, 0.2) !important;
+    padding: 20px !important;
+    display: none;
+}
+
+.form-search-booking{
+    margin: 30px 30px 30px 30px;
+    background-color: rgba(51, 122, 183, 0.2) !important;
+    padding: 20px;
+}
+
+.pnr{
+    margin-top: 30px;
+}
+
+.btn-proceed, .btn-view-booking{
+    margin: 20px 0 20px 65px;
+}
+
+ul,li{
+    list-style-type: none;
+}
+
+.pax_type label{
+    margin-top:5px;
+}
+
+#passengers{
+    color: #fff;
+}
+
+.nav>li>a.active,
+.nav>li>a:hover,
+.nav>li>a:focus {
+    background-color: rgba(247, 247, 247, 0.28);
+}
+
+.nav-pills{
+    background-color: #337ab7;
+}
+
+.nav-pills>li.active>a{
+    background-color: rgba(247, 247, 247, 0.28);
+}
+.nav-pills li a{
+    color: #fff;
+}
+
+
+
+/*Offers*/
+.offers{
+    padding: 10px 30px 0 30px;
+    color: #000;
+    background-color: #e2ddd5;
+    background-image: url("../img/island.jpg");
+    background-size: cover;
+}
+.offers h3{
+    color: rgba(80, 28, 14, 0.80);
+}
+
+.details{
+    margin: 0 10px 0 10px;
+}
+.priceList{
+    height: 100% !important;
+}
+
+.priceList li {
+    width: 45%;
+    float: left;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    border-bottom: none;
+    background-color: rgba(230, 230, 230, 0.8) !important;
+}
+
+.priceList li a{
+    border-bottom: 1px solid #ccc;
+    display: block;
+    line-height: 14px;
+}
+
+.priceList .col-md-6{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.t19_img {
+    width: 100%;
+    padding: 0 0 15px 0;
+    height: 200px;
+}
+
+div.offerDetails {
+    float: left;
+    line-height: 14px;
+    max-width: 200px;
+    margin-top: 10px;
+}
+
+.offerDetails .offerName {
+    font-size: 1.33em;
+    color: rgb(0, 102, 153) !important;
+}
+
+.offerClass, .offerDetails .offerClass {
+    color: #333;
+    font-size: 1em;
+    margin: 5px 10px 0 0;
+    font-weight: normal;
+}
+
+.offerDetails .offerExpires{
+    color: #4e443f;
+    font-weight: normal;
+    font-size: 0.75em;
+}
+
+.dateLabelExpire {
+    float: left;
+}
+
+.datePromotionExpire {
+    direction: ltr;
+    float: left;
+    margin-left: 4px;
+}
+
+.priceDetails {
+    text-align: right;
+    float: right;
+    min-width: 90px;
+    margin-top: 10px;
+}
+
+.priceList li a .offerCurrency {
+    font-size: 1.08em;
+}
+
+.offerCurrency {
+    color: #333;
+    font-weight: normal;
+}
+
+.offerPrice {
+    float: right;
+    color: #501c0e;
+    font-size: 1.33em;
+    margin-top: 7px;
+}
+
+.departurePeriod     {
+    font-size: 0.75em;
+    font-weight: normal;
+    color: #4e443f;
+    display: inline-block;
+    float: left;
+    clear: left;
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+.dateLabelDeparture {
+    float: left;
+}
+
+.datePromotionDeparture {
+    direction: ltr;
+    float: left;
+    max-width: 200px;
+    margin-left: 4px;
+}
+
+/*FOOTER*/
+
+.footer {
+    padding: 30px;
+    color: #fff;
+    background-color: rgb(40,96,144);
+}
+
+.footer .social {
+
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #cccccc;
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+
+
+.footer input {
+
+    height: 40px;
+    width: 160px;
+    padding: 5px;
+    border: none;
+    background-color: #cccccc;
+    color: #000;
+}
+
+.footer .btn {
+
+    padding: 10px 5px 10px;
+    margin: -3px 0 0 5px;
+}
+
+
+.error {
+    border: 1px solid red;
+}

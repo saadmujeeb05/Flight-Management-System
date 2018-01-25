@@ -1,0 +1,87 @@
+body{
+    background-image: url("../img/plane2.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.mains{
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.table{
+    margin-bottom: 0 !important;
+}
+
+th{
+    background-color: rgba(51, 122, 183, 0.82);
+    color: #fff;
+}
+
+.itin-panel{
+    margin: 30px 0;
+}
+
+.tab-content{
+background-color: rgba(51, 122, 183, 0.2) !important;
+}
+
+.btn-next-passengers {
+    margin: 20px -10px 10px;
+}
+.btn-confirm{
+    margin: 20px 0;
+}
+
+.seat{
+    margin:5px;
+}
+.seat-available{
+    background-color: green;
+    width:20px;
+    height:20px;
+}
+
+.seat-taken{
+    background-color: red;
+    width:20px;
+    height:20px;
+}
+
+.seat-chosen{
+    background-color: white;
+    width:20px;
+    height:20px;
+}
+
+.mar{
+    margin-right: 10px;
+}
+.mar1{
+    margin-left: -20px;
+}
+
+#seats{
+    color: #fff;
+}
+/*
+
+.nav li:active{
+    background-color: #333333;
+}
+
+.nav>li>a.active,
+.nav>li>a:hover,
+.nav>li>a:focus {
+    background-color: rgba(247, 247, 247, 0.28);
+}
+
+.nav-pills{
+    background-color: #337ab7;
+}
+
+.nav-pills li a{
+    color: #fff;
+}
+*/

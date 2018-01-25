@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <servlet>
+        <servlet-name>CustomerServlet</servlet-name>
+        <servlet-class>servlets.CustomerServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CustomerServlet</servlet-name>
+        <url-pattern>/CustomerServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>servlets.AdminServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/AdminServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BookingServlet</servlet-name>
+        <servlet-class>servlets.BookingServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BookingServlet</servlet-name>
+        <url-pattern>/BookingServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+    <!--
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>AdminSecurity</web-resource-name>
+            <url-pattern>/admin.html</url-pattern>
+
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+
+        <auth-constraint>
+            <role-name>Admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-role>
+        <role-name>Admin</role-name>
+    </security-role>
+
+
+        <security-constraint>
+            <web-resource-collection>
+                <web-resource-name>ManagerSecurity</web-resource-name>
+                <url-pattern>/manager.html</url-pattern>
+
+                <http-method>GET</http-method>
+                <http-method>POST</http-method>
+            </web-resource-collection>
+
+            <auth-constraint>
+                <role-name>Manager</role-name>
+            </auth-constraint>
+        </security-constraint>
+
+        <security-role>
+            <role-name>Manager</role-name>
+        </security-role>
+
+        <security-constraint>
+            <web-resource-collection>
+                <web-resource-name>CustomerSecurity</web-resource-name>
+                <url-pattern>/flightTrip.html</url-pattern>
+
+                <http-method>GET</http-method>
+                <http-method>POST</http-method>
+            </web-resource-collection>
+
+            <auth-constraint>
+                <role-name>Customer</role-name>
+            </auth-constraint>
+        </security-constraint>
+
+
+        <security-role>
+            <role-name>Customer</role-name>
+        </security-role>
+
+        <login-config>
+            <auth-method>FORM</auth-method>
+            <form-login-config>
+                <form-login-page>/login.html</form-login-page>
+                <form-error-page>/login.html</form-error-page>
+            </form-login-config>
+        </login-config>
+        -->
+
+</web-app>

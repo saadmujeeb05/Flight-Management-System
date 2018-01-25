@@ -1,0 +1,36 @@
+body{
+    background-image: url("../img/plane.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.login-form{
+    background-color: rgba(51, 122, 163, 0.2);
+    width: 45%;
+    margin: 150px auto;
+    padding-bottom: 15px;
+}
+
+.login-header{
+    background-color: #337ab7;
+    margin-bottom: 35px;
+}
+
+.login-header h3{
+    color: #fff;
+    padding:10px;
+}
+
+label{
+    color: #fff;
+}
+
+.form-group{
+    margin-bottom: 30px;
+}
+
+@media (min-width: 1200px) {
+    .login-form .container{
+        max-width: 500px;
+    }
+}
