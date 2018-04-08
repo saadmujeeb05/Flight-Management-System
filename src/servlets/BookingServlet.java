@@ -24,7 +24,7 @@ import javax.activation.*;
 
 public class BookingServlet extends HttpServlet{
     private static String USER_NAME = "msn.2494";  // GMail user name (just the part before "@gmail.com")
-    private static String PASSWORD = "+Msn2494-"; // GMail password
+    private static String PASSWORD = "password"; // GMail password
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(Jsoup.clean(request.getParameter("request"), Whitelist.basic()).equals("startBooking"))
@@ -58,29 +58,35 @@ public class BookingServlet extends HttpServlet{
         JSONObject myobj = new JSONObject();
 
         HttpSession session = request.getSession();
-        String reservation_type = Jsoup.clean(request.getParameter("reservation_type"), Whitelist.basic());
-        if(reservation_type.equals("1"))
-            session.setAttribute("reservation_type","return");
-        else if(reservation_type.equals("2"))
-            session.setAttribute("reservation_type","one-way");
+        if(session.getAttribute("name") == null) {
 
-        session.setAttribute("flight-from",Jsoup.clean(request.getParameter("flight-from"), Whitelist.basic()));
-        session.setAttribute("date-depart",Jsoup.clean(request.getParameter("date-depart"), Whitelist.basic()));
-        session.setAttribute("flight-to", Jsoup.clean(request.getParameter("flight-to"), Whitelist.basic()));
-        if(reservation_type.equals("1"))
-        {
-            session.setAttribute("date-return",Jsoup.clean(request.getParameter("date-return"), Whitelist.basic()));
+            myobj.put("success", false);
+            myobj.put("request", Jsoup.clean(request.getParameter("request"), Whitelist.basic()));
+
+            out.write(myobj.toJSONString());
         }
-        else if(reservation_type.equals("2"))
-        {
-            session.setAttribute("date-return","-");
+        else {
+            String reservation_type = Jsoup.clean(request.getParameter("reservation_type"), Whitelist.basic());
+            if (reservation_type.equals("1"))
+                session.setAttribute("reservation_type", "return");
+            else if (reservation_type.equals("2"))
+                session.setAttribute("reservation_type", "one-way");
+
+            session.setAttribute("flight-from", Jsoup.clean(request.getParameter("flight-from"), Whitelist.basic()));
+            session.setAttribute("date-depart", Jsoup.clean(request.getParameter("date-depart"), Whitelist.basic()));
+            session.setAttribute("flight-to", Jsoup.clean(request.getParameter("flight-to"), Whitelist.basic()));
+            if (reservation_type.equals("1")) {
+                session.setAttribute("date-return", Jsoup.clean(request.getParameter("date-return"), Whitelist.basic()));
+            } else if (reservation_type.equals("2")) {
+                session.setAttribute("date-return", "-");
+            }
+            //session.setAttribute("num_seats",Jsoup.clean(request.getParameter("num_seats"), Whitelist.basic()));
+
+            myobj.put("success", true);
+            myobj.put("request", Jsoup.clean(request.getParameter("request"), Whitelist.basic()));
+
+            out.write(myobj.toJSONString());
         }
-        //session.setAttribute("num_seats",Jsoup.clean(request.getParameter("num_seats"), Whitelist.basic()));
-
-        myobj.put("success",true);
-        myobj.put("request",Jsoup.clean(request.getParameter("request"), Whitelist.basic()));
-
-        out.write(myobj.toJSONString());
 
     }
 

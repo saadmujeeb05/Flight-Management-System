@@ -95,7 +95,7 @@ function startedBooking(data) {
     }
     else
     {
-        alert("error");
+        window.location = "../login.html";
     }
 }
 

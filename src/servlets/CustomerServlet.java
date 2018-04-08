@@ -21,11 +21,11 @@ import java.io.PrintWriter;
 public class CustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        if(Jsoup.clean(request.getParameter("request"), Whitelist.basic()).equals("signup"))
+        if(request.getParameter("request").equals("signup"))
         {
             signup(request,response);
         }
-        else if(Jsoup.clean(request.getParameter("request"), Whitelist.basic()).equals("login"))
+        else if(request.getParameter("request").equals("login"))
         {
             login(request,response);
         }
